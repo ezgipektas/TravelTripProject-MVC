@@ -1,0 +1,104 @@
+﻿@using TravelTripProject.Models.Class
+@model List<AdresBlog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Personal Blog a Blogging Category Flat Bootstarp  Responsive Website Template | Contact :: w3layouts</title>
+    <link href="~/Templates/blogweb/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="~/Templates/blogweb/css/style.css" rel='stylesheet' type='text/css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Personal Blog Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!----webfonts---->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+    <!----//webfonts---->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!--end slider -->
+    <!--script-->
+    <script type="text/javascript" src="js/move-top.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <!--/script-->
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $(".scroll").click(function (event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 900);
+            });
+        });
+    </script>
+    <!---->
+
+</head>
+<body>
+
+    <div class="contact-content">
+        <div class="container">
+            @*<div class="contact-info>
+                    <h2>BİZE ULAŞIN</h2>
+                </div>*@
+            <h2>BİZE ULAŞIN</h2>
+            @*<div class="contact-details">
+                    <form>
+                        <input type="text" placeholder="" required />
+                        <input type="text" placeholder="Email" required />
+                        <input type="text" placeholder="Phone" required />
+                        <input type="text" placeholder="City Name" required />
+                        <textarea placeholder="Message"></textarea>
+                        <input type="submit" value="SEND" />
+                    </form>
+                </div>*@
+
+
+        <div class="contact-details">
+      
+            <div class="col-md-6 contact-map">
+
+                @foreach (var item in Model)
+                {
+                    <h4>BİZİ BURADAN BULABİLİRSİNİZ</h4>
+                    <iframe src="@item.Konum" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              
+                }
+            </div>
+            <div class="col-md-6 company_address">
+                @foreach (var item in Model)
+                {
+                    <h4>İLETİŞİM ADRESLERİMİZ</h4>
+                    <p>Adres : @item.AcikAdres</p>
+                    <p>Telefon : @item.Telefon</p>
+                    <p>Email :  @item.Mail</p>
+                    <p>Follow on: <a href="#">Facebook</a>, <a href="#">Twitter</a></p>
+                }
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+
+
+            </div>
+        </div>
+
+        <!---->
+        <div class="footer">
+            <div class="container">
+                <p>Copyrights © @DateTime.Now.Year Tüm hakları saklıdır. | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+            </div>
+        </div>
+    </body>
+</html>
+
+
